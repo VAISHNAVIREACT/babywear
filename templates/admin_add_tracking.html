@@ -1,0 +1,96 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabyWear</title>
+    <style>
+        body {
+            margin: 100px 283px;
+            font-family: Arial, sans-serif;
+            background-repeat: no-repeat;
+            background-image: url('');
+            background-size: cover;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px whitesmoke;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            color: white;
+            font-weight: bolder;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h1.ph {
+            text-align: center;
+            font-size: 36px;
+            color: whitesmoke;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        {% block content %}
+        <form method="post" enctype="multipart/form-data" class="container">
+            {% csrf_token %}
+            <div class="note">
+                <h1 class="ph">ADD Track Details</h1>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.date.id_for_label }}">Date:</label>
+                {% render_field form.date class="form-control" placeholder="Date" %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.location.id_for_label }}">Location:</label>
+                {% render_field form.location class="form-control" placeholder="Location" %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.status.id_for_label }}">Status:</label>
+                {% render_field form.status class="form-control" placeholder="Status" %}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

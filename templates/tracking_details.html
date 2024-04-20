@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .tracking-info {
+            margin-top: 20px;
+        }
+        .tracking-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .tracking-info th, .tracking-info td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .tracking-info th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tracking Details</h1>
+        <div class="tracking-info">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+                {% for tracking_detail in tracking_details %}
+                <tr>
+                    <td>{{ tracking_detail.date }}</td>
+                    <td>{{ tracking_detail.location }}</td>
+                    <td>{{ tracking_detail.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

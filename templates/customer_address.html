@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Address - Baby Wear Management System</title>
+    <!-- Link to your CSS file -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            background-color: #1a73e8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #135ba1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to BabyWear</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'shop'%}">Shop</a></li>
+                <li><a  href="{%url 'about-us'%}">About Us</a></li>
+                <li><a  href="{%url 'contact-us'%}">Contact Us</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>Customer Address</h2>
+        <!-- Form to collect customer address -->
+        <form action="{% url 'payment'%}" method="POST">
+            {% csrf_token %}
+            <!-- Add form fields here, e.g., name, address, contact details -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea><br>
+
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="contact" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cafe Management System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

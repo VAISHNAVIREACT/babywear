@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabyWear Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 60%;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .tracking-results {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BabyWear Tracking</h1>
+        <form id="trackingForm" action="{% url 'tracking_details'%}" method="POST">
+            <input type="text" id="trackingNumber" name="tracking_number" placeholder="Enter Tracking Number" required>
+            <br>
+            <input type="submit" value="Track">
+        </form>
+        <div class="tracking-results" id="trackingDetails">
+            <!-- Tracking results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('trackingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            var trackingNumber = document.getElementById('trackingNumber').value;
+            
+            // Redirect to track_details.html with the tracking number as query parameter
+            window.location.href = "{% url 'tracking_details' %}" + '?tracking_number=' + trackingNumber;
+        });
+    </script>
+            </body>
+</html>

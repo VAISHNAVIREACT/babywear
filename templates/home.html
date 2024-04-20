@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #ebe0e0;
+            background-position: center;
+            background-size: 150%;
+            background-repeat: no-repeat;
+            background-image: url('https://getwallpapers.com/wallpaper/full/2/7/7/520185.jpg');
+        }
+
+        #navbar {
+            background-color: #5e8eed;
+            color: white;
+        }
+
+        .row1 {
+            padding-top: 10px;
+            padding-right: 50px;
+        }
+
+        .row2 {
+            padding-bottom: 20px;
+        }
+
+        .navbar-input {
+            padding: 11px 16px;
+            border-radius: 2px 0 0 2px;
+            border: 0 none;
+            outline: 0 none;
+            font-size: 15px;
+        }
+
+        .navbar-button {
+            background-color: #ffe11b;
+            border: 1px solid #ffe11b;
+            border-radius: 0 2px 2px 0;
+            color: #565656;
+            padding: 10px 0;
+            height: 43px;
+            cursor: pointer;
+        }
+
+        .upper-links {
+            display: inline-block;
+            padding: 0 11px;
+            line-height: 23px;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0;
+            color: inherit;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0px;
+        }
+
+        .dropdown:hover {
+            background-color: #fff;
+        }
+
+        .dropdown:hover .links {
+            color: #000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            display: none;
+            background-color: #fff;
+            color: #333;
+            left: 0px;
+            border: 0;
+            border-radius: 0;
+            box-shadow: 0 4px 8px -3px #555454;
+            margin: 0;
+            padding: 0px;
+        }
+
+        .links {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .links:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .profile-links {
+            font-size: 12px;
+            font-family: 'Roboto', sans-serif;
+            border-bottom: 1px solid #e9e9e9;
+            box-sizing: border-box;
+            display: block;
+            padding: 0 11px;
+            line-height: 23px;
+        }
+
+        .profile-li {
+            padding-top: 2px;
+        }
+
+        .largenav {
+            display: none;
+        }
+
+        .smallnav {
+            display: block;
+        }
+
+
+        .badge {
+            background-color: #ffe11b;
+            color: #565656;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+
+        .image {
+            margin: -38px -188px;
+            width: 59px;
+            height: 49px;
+            position: absolute;
+            border: 4px solid;
+            box-shadow: black;
+        }
+
+        footer {
+            background-color: #5e8eed;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .largenav {
+                display: block;
+            }
+
+            .smallnav {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="container">
+            <div class="row row1">
+                <ul class="largenav pull-right">
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'home'%}"> Home</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'admin_login'%}">Admin</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'signup'%}">Signup</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'login'%}">Login</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'about-us'%}">About Us</a></li>
+                    <li class="upper-links dropdown"><a class="links" href="{% url 'contact-us'%}">Contact Us</a></li>
+                    <li class="upper-links dropdown">
+                    </li>
+                </ul>
+            </div>
+            <div class="row row2">
+                <div class="col-sm-2">
+                    <h2 style="margin:-34px -110px; position: absolute;"><a style="text-decoration:none; color:white;"
+                            href="/"><span class="largenav">Baby Boutique</span></a></h2>
+                    <img src="https://www.shoppinganita.com.br/wp-content/uploads/2020/12/baby_boutique.png" alt=""
+                        class="image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Baby Boutique</h1>
+    <h2>The Perfect Style For Your Baby</h2>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Baby Boutique. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add your JavaScript functions here

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Baby Wear Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add or modify styles as needed for the baby wear section */
+        /* Keep existing styles for header, navigation, and footer */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            /* Update background image for baby wear */
+            background-image: url('https://example.com/babywear-background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #26b8ce;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: #26c7e4;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #c2cdce; /* Blue color */
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #135ba1; /* Darker shade of blue on hover */
+        }
+
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            flex: 1 1 300px;
+        }
+
+        .menu-item h3 {
+            color: #333;
+        }
+
+        .menu-item p {
+            color: #666666;
+        }
+
+        .menu-item .price {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            /* Adjust as needed */
+            width: 250px; /* Set the width to 250px */
+            height: 200px; /* Set the height to 200px */
+        }
+
+        #cart {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart h2 {
+            color: #333;
+        }
+
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin-bottom: 10px;
+        }
+
+        #cart button {
+            background-color: #1a73e8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #cart button:hover {
+            background-color: #135ba1;
+        }
+
+        footer {
+            background-color: #26c7e4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Baby Wear Collection</h1>
+        <nav>
+            <li> <a href="{%url 'home'%}">Home</a></li>
+                <li> <a  href="{%url 'shop'%}">Shop</a></li>
+                <li><a href="{% url 'cart' %}">Cart <span id="cart-count">0</span></a></li>
+                <li><a  href="{%url 'order_page'%}">Orders</a></li>
+                <li><a  href="{%url 'tracking'%}">Tracking</a></li>
+
+                    </nav>
+    </header>
+
+    <section class="main-content">
+        <!-- Baby Wear Items -->
+        <div class="menu-item">
+            <h3>Baby Romper</h3>
+            <!-- Update image source -->
+            <img src="https://hunyhuny.com/9921-large_default/onesies-rompers-newborn-toddler-infant.jpg" alt="Baby Romper">
+            <p>Cute and comfy romper for your little one.</p>
+            <p class="price">850</p>
+            <button onclick="addToCart('Baby Romper', 850, 'https://hunyhuny.com/9921-large_default/onesies-rompers-newborn-toddler-infant.jpg')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <h3>Baby Onesie</h3>
+            <!-- Update image source -->
+            <img src="https://media.istockphoto.com/id/527055994/photo/baby-boy-clothes-and-white-bear-toy-on-a-clothesline.jpg?s=612x612&w=0&k=20&c=18QYzpCYeHXUlP_3ZMVQx6ZXoBWUqyxbvySC2AxSmE0=" alt="Baby Onesie">
+            <p>Soft and stylish onesie for your baby's everyday wear.</p>
+            <p class="price">1500</p>
+            <button onclick="addToCart('Baby Onesie', 1500, 'https://example.com/baby-onesie.https://media.istockphoto.com/id/527055994/photo/baby-boy-clothes-and-white-bear-toy-on-a-clothesline.jpg?s=612x612&w=0&k=20&c=18QYzpCYeHXUlP_3ZMVQx6ZXoBWUqyxbvySC2AxSmE0=')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <h3>Baby Booties</h3>
+            <!-- Update image source -->
+            <img src="https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1000</p>
+            <button onclick="addToCart('Baby Booties', 1000, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+
+
+        <div class="menu-item">
+            <h3>Baby Booties</h3>
+            <!-- Update image source -->
+            <img src="https://rukminim2.flixcart.com/image/850/1000/kzd147k0/baby-care-combo/0/q/c/presents-born-baby-summer-wear-baby-clothes-gift-sets-100-cotton-original-imagbdyzppzwmgqm.jpeg?q=90&crop=false" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1000</p>
+            <button onclick="addToCart('Baby Booties', 1000, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+
+
+
+        <div class="menu-item">
+            <h3>Baby Booties</h3>
+            <!-- Update image source -->
+            <img src="https://hunyhuny.com/10104-large_default/onesies-rompers-newborn-toddler-infant.jpg" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1200</p>
+            <button onclick="addToCart('Baby Booties', 1200, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Baby set</h3>
+            <!-- Update image source -->
+            <img src="https://rukminim2.flixcart.com/image/850/1000/l41n2q80/kids-apparel-combo/3/i/b/0-3-months-05-dark-blue-paddy-baby-original-imagff77ajyug7av.jpeg?q=90&crop=false" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1200</p>
+            <button onclick="addToCart('Baby Booties', 1200, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Babyset</h3>
+            <!-- Update image source -->
+            <img src="https://tiimg.tistatic.com/fp/1/007/555/comfortable-to-wear-anti-wrinkle-full-sleeves-new-born-cotton-baby-dress-set-790.jpg" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1200</p>
+            <button onclick="addToCart('Baby Booties', 1200, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+
+        <div class="menu-item">
+            <h3>Babyset</h3>
+            <!-- Update image source -->
+            <img src="https://staranddaisy.in/wp-content/uploads/2023/12/Baby-cloth.jpg" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1200</p>
+            <button onclick="addToCart('Baby Booties', 1200, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <h3>Babyset</h3>
+            <!-- Update image source -->
+            <img src="https://hips.hearstapps.com/hmg-prod/images/ghi-babyclothesbrands-1674588871.png?crop=0.503xw:1.00xh;0.250xw,0&resize=640:*" alt="Baby Booties">
+            <p>Adorable booties to keep your baby's feet warm and cozy.</p>
+            <p class="price">1500</p>
+            <button onclick="addToCart('Baby Booties', 1200, 'https://momlovesbest.com/wp-content/uploads/2021/08/Best-Baby-Booties-450x300.jpg')">Add to Cart</button>
+        </div>
+
+
+    </section>
+
+
+
+    <section class="main-content">
+        {% for product in products %}
+        <div class="menu-item">
+            <h3>{{ product.name }}</h3>
+            <!-- Ensure that the image URL is correct -->
+            <img src="{{ product.product_image.url }}" alt="{{ product.name }}">
+            <p>{{ product.description }}</p>
+            <!-- Ensure that the price is passed as a number -->
+            <p class="price">{{ product.price }}</p>
+            <button onclick="addToCart('{{ product.name }}', {{ product.price }}, '{{ product.product_image.url }}')">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </section>
+        
+
+
+    <!-- Footer -->
+
+    <!-- JavaScript for cart functionality -->
+    <script>
+        // Update cart count function
+        function updateCartCount() {
+            // Get the cart count element
+            const cartCountElement = document.getElementById('cart-count');
+            
+            // Retrieve the cart items from local storage or session
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Update the cart count
+            cartCountElement.textContent = cartItems.length;
+        }
+        
+        // Call updateCartCount function when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+        });
+        
+        // Function to add product to cart
+        function addToCart(name, price, imageUrl) {
+            // Get the cart items from local storage or session
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Add the new item to the cart
+            const newItem = { name: name, price: price, imageUrl: imageUrl };
+            cartItems.push(newItem);
+            
+            // Save the updated cart items to local storage or session
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            
+            // Update the cart count
+            updateCartCount();
+            
+            // Optionally, you can display a message indicating that the item was added to the cart
+            alert('Product added to cart!');
+        }
+        
+        // Function to place order (you can implement this function as needed)
+        function placeOrder() {
+            // Implement order placement functionality
+        }
+    </script>
+    </body>
+
+</html>
